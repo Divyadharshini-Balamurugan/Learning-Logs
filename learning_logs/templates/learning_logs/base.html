@@ -1,18 +1,67 @@
-<p>
-    <a href="{% url 'learning_logs:index' %}">Learning Log</a> -
-    <a href="{% url 'learning_logs:topics' %}">Topics</a> -
-    {% if user.is_authenticated %}
-        Hello, {{ user.username }}.
-        <form action="{% url 'users:logout' %}" method="post">
-        {% csrf_token %}
-            <button type="submit">Log out</button>
-        </form>
+{% load bootstrap4 %}
 
-    {% else %}
-        <a href="{% url 'users:register' %}">Register</a>
-        <a href="{% url 'users:login' %}">Log in</a>
-    {% endif %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Learning Log</title>
 
-</p>
+        {% bootstrap_css %}
+        {% bootstrap_javascript jquery='full' %}
+    </head>
+    <body>
 
-{% block content %}{% endblock content %}
+        <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+
+            <a class="navbar-brand" href="{% url 'learning_logs:index' %}">
+                Learning Log
+            </a>
+
+            <button class="navbar-toggler" type="'button" data-toggle="collapse"
+                data-target="#navbarCollapse" aria-contols="navbarCollapse"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'learning_logs:topics' %}">
+                            Topics
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    {% if user.is_authenticated %}
+                    <div class="d-flex align-items-center">
+                        <li class="nav-item">
+                            <span class="navbar-text mr-2">Hello, {{ user.username }}.</span>
+                        </li>
+                        <li class="nav-item">
+                            <!-- <a class="nav-link" href="{% url 'users:logout' %}">Log out</a> -->
+                            <form action="{% url 'users:logout' %}" method="post" class="form-inline">
+                                {% csrf_token %}
+                                <button type="submit" class="nav-link btn btn-link p-0" style="line-height: 1.5;">Log out</button>
+                            </form>
+                        </li>
+                    </div>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'users:login' %}">Log in</a>
+                        </li>
+
+                    {% endif %}
+                </ul>
+            </div>
+
+
+        </nav>
+
+        <main role="main" class="container">
+            <div class="pb-2 mb-2 border-bottom">
+                {% block page_header %}{% endblock page_header %}
+            </div>
+                {% block content %}{% endblock content %}
+        </main>
+    </body>
+</html>
