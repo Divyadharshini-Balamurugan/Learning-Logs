@@ -1,5 +1,19 @@
 {% extends "learning_logs/base.html" %}
 
 {% block content %}
-    <p>You have been logged out. Thank you for visiting!</p>
+<div class="container mt-5">
+  <div class="card text-center shadow-sm mx-auto" style="max-width: 600px;">
+    <div class="card-header bg-secondary text-white">
+      Logged Out
+    </div>
+    <div class="card-body">
+      <p class="card-text mb-3">
+        You have been logged out successfully. Thank you for visiting!
+      </p>
+      <a href="{% url 'learning_logs:index' %}" class="btn btn-success">
+        Back to Home
+      </a>
+    </div>
+  </div>
+</div>
 {% endblock content %}

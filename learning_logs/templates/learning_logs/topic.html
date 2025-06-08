@@ -1,28 +1,35 @@
 {% extends 'learning_logs/base.html' %}
 
 {% block page_header %}
-  <h3>{{ topic }}</h3>
+  <h3 class="mb-4 text-success">{{ topic }}</h3>
 {% endblock page_header %}
 
 {% block content %}
-    <p>
-        <a href="{% url 'learning_logs:new_entry' topic.id %}">Add new entry</a>
-    </p>
+<div class="container">
 
-    {% for entry in entries %}
-        <div class="card mb-3">
-            <h4 class="card-header">
-                {{ entry.date_added|date:'M d, Y H:I' }}
-                <small><a href="{% url 'learning_logs:edit_entry' entry.id %}">
-                    edit entry
-                </a></small>
-            </h4>
-            <div class="card-body">
-                {{ entry.text|linebreaks }}
-            </div>
-        </div>
-    {% empty %}
-        <p>There are no entries for the topic yet.</p>
-    {% endfor %}
+  <p>
+    <a href="{% url 'learning_logs:new_entry' topic.id %}" class="btn btn-outline-info mb-4">
+      + Add New Entry
+    </a>
+  </p>
 
+  {% for entry in entries %}
+    <div class="card shadow-sm mb-4 border-left-info" style="border-left: 5px solid #17a2b8;">
+      <div class="card-header bg-light d-flex justify-content-between align-items-center">
+        <strong>{{ entry.date_added|date:'M d, Y H:i' }}</strong>
+        <a href="{% url 'learning_logs:edit_entry' entry.id %}" class="btn btn-sm btn-outline-secondary">
+          ✏️ Edit
+        </a>
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{ entry.text|linebreaks }}</p>
+      </div>
+    </div>
+  {% empty %}
+    <div class="alert alert-info">
+      There are no entries for this topic yet.
+    </div>
+  {% endfor %}
+
+</div>
 {% endblock content %}

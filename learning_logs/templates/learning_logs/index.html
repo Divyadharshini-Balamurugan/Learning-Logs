@@ -8,7 +8,9 @@
         topics you're learning about. Whenever you learn something new
         about a topic, make an entry summarizing what you've learned.</p>
         
-        <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}"
+        <a class="btn btn-lg btn-info" href="{% url 'users:register' %}"
             role="button">Register &raquo;</a>
+
+        <a class="btn btn-lg btn-outline-info" href="{% url 'learning_logs:new_topic' %}" role="button">+Add Topic</a>
   </div>
 {% endblock page_header %}
