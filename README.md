@@ -3,7 +3,7 @@
 
 A web application to help users keep track of the topics they’re learning about. Users can create accounts, make topics, and add journal-style entries for each topic.
 
-🔗 **Live App**: [https://learning-logs-r8se.onrender.com](https://learning-logs-r8se.onrender.com)
+🔗 **Live App**: https://learning-logs-r8se.onrender.com/
 
 ---
 
