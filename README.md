@@ -49,7 +49,7 @@ learning_log/
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/yourusername/learning_log.git
+   git clone https://github.com/Divyadharshini-Balamurugan/learning_log.git
    cd learning_log
    ```
 
