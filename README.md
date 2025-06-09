@@ -10,7 +10,7 @@ A web application to help users keep track of the topics they’re learning abou
 ## 🚀 Features
 
 - User registration and login system  
-- Add, view, and edit learning topics  
+- Add and view learning topics  
 - Add, view, and edit topic entries  
 - Bootstrap-based responsive UI  
 - Admin panel for superusers  
@@ -128,6 +128,5 @@ whitenoise==6.9.0
 
 ## Acknowledgements
 
-This project was created with reference to the book:  
-📗 **Python Crash Course** by *Eric Matthes*  
+This website was built as a project inspired by the book Python Crash Course by Eric Matthes, with additional enhancements and styling to offer a smoother and more interactive experience. 
 
